@@ -1,0 +1,61 @@
+{
+  "scene": {
+    "tick_minutes": 30,
+    "tick_interval_seconds": 30,
+    "start": {
+      "day": 1,
+      "hour": 20.0,
+      "weather": "cloudy",
+      "location": "yard",
+      "character_state": "idle",
+      "affinity": 40.0
+    },
+    "events_file": "events.json",
+    "state_file": "state.json",
+    "sync_to_utc8": true,
+    "anti_silence_minutes": 60,
+    "follow_up_minutes": 90
+  },
+  "persona": {
+    "name": "胡桃",
+    "tags": [
+      "weather",
+      "nature",
+      "stargazing",
+      "festival",
+      "ghost_story",
+      "business",
+      "missing_you",
+      "greeting",
+      "drama",
+      "food",
+      "music",
+      "opera"
+    ]
+  },
+  "decision": {
+    "proactiveness": "balanced",
+    "dnd_hours": [
+      0,
+      7
+    ],
+    "suppress_after_user_minutes": 3.0,
+    "min_interval_minutes": 8
+  },
+  "delivery": {
+    "channels": [
+      {
+        "name": "openclaw_webhook",
+        "config": {
+          "url": "http://127.0.0.1:18789/hooks/agent",
+          "token": "YOUR_GATEWAY_HOOK_TOKEN",
+          "channel": "openclaw-weixin",
+          "to": "YOUR_WECHAT_OPENID@im.wechat"
+        }
+      },
+      {
+        "name": "console"
+      }
+    ]
+  }
+}

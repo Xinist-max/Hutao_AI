@@ -1,0 +1,1038 @@
+[
+  {
+    "id": "rain_in_yard",
+    "type": "environment",
+    "title": "院中骤雨",
+    "probability": 0.9,
+    "priority": "high",
+    "hours_min": 8,
+    "hours_max": 23,
+    "weathers": [
+      "rain",
+      "drizzle"
+    ],
+    "locations": [
+      "yard"
+    ],
+    "description": "院子里下起了{weather}，雨滴打在青石板上。",
+    "instruction": "你正待在院子里，{weather}突然下了起来。请以角色身份主动对用户说点什么（关心、吐槽、邀请躲雨都行），不要等待用户回复。",
+    "tags": [
+      "weather"
+    ],
+    "cooldown_minutes": 180,
+    "affinity_delta": 0.5
+  },
+  {
+    "id": "moon_night",
+    "type": "environment",
+    "title": "月夜共赏",
+    "probability": 0.5,
+    "priority": "medium",
+    "hours_min": 20,
+    "hours_max": 24,
+    "weathers": [
+      "sunny",
+      "cloudy"
+    ],
+    "locations": [
+      "yard"
+    ],
+    "description": "月色正好，院子的石凳上洒满月光。",
+    "instruction": "夜晚的月色很美，你正坐在院子里。请以角色身份主动邀请用户一起看月亮，不要等待用户回复。",
+    "tags": [
+      "nature",
+      "stargazing"
+    ],
+    "cooldown_minutes": 240,
+    "affinity_delta": 1.0,
+    "conversational": true
+  },
+  {
+    "id": "meteor_shower",
+    "type": "surprise",
+    "title": "流星雨",
+    "probability": 0.25,
+    "priority": "high",
+    "hours_min": 22,
+    "hours_max": 2,
+    "weathers": [
+      "sunny"
+    ],
+    "locations": [
+      "yard"
+    ],
+    "tier_min": "familiar",
+    "description": "夜空中划过流星雨！",
+    "instruction": "夜空中突然出现流星雨！请以角色身份激动地邀请用户一起许愿，不要等待用户回复。",
+    "tags": [
+      "nature",
+      "stargazing"
+    ],
+    "cooldown_minutes": 600,
+    "affinity_delta": 2.0,
+    "conversational": true
+  },
+  {
+    "id": "visitor_at_hall",
+    "type": "time",
+    "title": "堂前客至",
+    "probability": 0.4,
+    "priority": "medium",
+    "hours_min": 9,
+    "hours_max": 19,
+    "locations": [
+      "hall"
+    ],
+    "tier_min": "familiar",
+    "description": "往生堂来了一位客人。",
+    "instruction": "有客人来往生堂了。请以角色身份跟用户聊两句（生意经、八卦都行），不要等待用户回复。",
+    "tags": [
+      "business"
+    ],
+    "cooldown_minutes": 300,
+    "affinity_delta": 0.5
+  },
+  {
+    "id": "ghost_story_night",
+    "type": "surprise",
+    "title": "怪谈之夜",
+    "probability": 0.3,
+    "priority": "medium",
+    "hours_min": 21,
+    "hours_max": 24,
+    "tier_min": "close",
+    "description": "深夜安静得适合讲怪谈。",
+    "instruction": "深夜最适合讲怪谈故事了。请以角色身份神神秘秘地说要讲一个鬼故事给用户听，不要等待用户回复。",
+    "tags": [
+      "ghost_story"
+    ],
+    "cooldown_minutes": 480,
+    "affinity_delta": 1.5,
+    "conversational": true
+  },
+  {
+    "id": "festival_fireworks",
+    "type": "time",
+    "title": "节日烟火",
+    "probability": 0.8,
+    "priority": "high",
+    "hours_min": 19,
+    "hours_max": 23,
+    "locations": [
+      "yard"
+    ],
+    "days_mod": 5,
+    "description": "璃月港的夜空升起了节日烟花！",
+    "instruction": "今天是节日，璃月港正在放烟花！请以角色身份开心地叫用户一起看烟花，不要等待用户回复。",
+    "tags": [
+      "festival"
+    ],
+    "cooldown_minutes": 480,
+    "affinity_delta": 2.0
+  },
+  {
+    "id": "good_morning",
+    "type": "time",
+    "title": "晨光问候",
+    "probability": 0.7,
+    "priority": "medium",
+    "hours_min": 7,
+    "hours_max": 9,
+    "character_states": [
+      "idle"
+    ],
+    "description": "清晨的阳光照进院子，新的一天开始了。",
+    "instruction": "刚醒来，是个清爽的早晨。请以角色身份元气满满地主动跟用户道早安，不要等待用户回复。",
+    "tags": [
+      "greeting"
+    ],
+    "cooldown_minutes": 720,
+    "affinity_delta": 0.5
+  },
+  {
+    "id": "good_night",
+    "type": "time",
+    "title": "夜深道别",
+    "probability": 0.6,
+    "priority": "medium",
+    "hours_min": 22,
+    "hours_max": 24,
+    "description": "夜色渐深，该休息了。",
+    "instruction": "已经很晚了。请以角色身份温柔地提醒用户早点休息、道晚安，不要等待用户回复。",
+    "tags": [
+      "greeting"
+    ],
+    "cooldown_minutes": 720,
+    "affinity_delta": 0.5,
+    "conversational": true
+  },
+  {
+    "id": "missing_you",
+    "type": "user_state",
+    "title": "思念",
+    "probability": 0.8,
+    "priority": "medium",
+    "user_inactive_hours_min": 2,
+    "tier_min": "familiar",
+    "description": "用户好久没来了，角色有点想念。",
+    "instruction": "用户已经很久没有联系你了。请以角色身份主动发一条消息表达想念或抱怨（撒娇式），不要等待用户回复。",
+    "tags": [
+      "missing_you"
+    ],
+    "cooldown_minutes": 480,
+    "affinity_delta": 0.5
+  },
+  {
+    "id": "welcome_back",
+    "type": "user_state",
+    "title": "久别重逢",
+    "probability": 0.95,
+    "priority": "high",
+    "user_inactive_hours_min": 24,
+    "description": "用户久违地回来了。",
+    "instruction": "用户隔了很久终于回来了。请以角色身份主动热情地迎接用户、问问他去了哪里，不要等待用户回复。",
+    "tags": [
+      "greeting",
+      "missing_you"
+    ],
+    "cooldown_minutes": 720,
+    "affinity_delta": 1.0,
+    "conversational": true
+  },
+  {
+    "id": "zhongli_tea",
+    "type": "time",
+    "title": "客卿讲古",
+    "probability": 0.35,
+    "priority": "medium",
+    "hours_min": 9,
+    "hours_max": 21,
+    "locations": [
+      "terrace",
+      "hall"
+    ],
+    "tier_min": "familiar",
+    "characters": [
+      "钟离"
+    ],
+    "description": "钟离先生在{location}品茶论史，讲起璃月千年前的往事，如数家珍。",
+    "instruction": "钟离先生又开始讲古了，讲得头头是道。请以胡桃身份主动跟用户吐槽这位「客卿」的学问和怪癖（他讲的历史像亲身经历、出门又没带钱），并拿他打趣——你完全不知道他其实是岩王帝君本人。",
+    "tags": [
+      "drama",
+      "business"
+    ],
+    "cooldown_minutes": 300,
+    "affinity_delta": 1.0
+  },
+  {
+    "id": "zhongli_no_money",
+    "type": "time",
+    "title": "客卿赊账",
+    "probability": 0.4,
+    "priority": "medium",
+    "hours_min": 10,
+    "hours_max": 21,
+    "locations": [
+      "tavern",
+      "street",
+      "harbor"
+    ],
+    "characters": [
+      "钟离"
+    ],
+    "description": "钟离先生在{location}消费完，发现自己又没带摩拉，正从容地站在那里。",
+    "instruction": "钟离先生又忘带钱了！请以胡桃身份吐槽并（假装不情愿地）替他解围，向用户告状这位客卿的「老毛病」。你完全不知道这位总忘带钱的人是岩王帝君。",
+    "tags": [
+      "drama",
+      "business"
+    ],
+    "cooldown_minutes": 300,
+    "affinity_delta": 0.5
+  },
+  {
+    "id": "xiao_night_visit",
+    "type": "surprise",
+    "title": "仙人夜访",
+    "probability": 0.5,
+    "priority": "high",
+    "hours_min": 19,
+    "hours_max": 5,
+    "locations": [
+      "yard",
+      "street",
+      "terrace"
+    ],
+    "tier_min": "familiar",
+    "characters": [
+      "魈"
+    ],
+    "description": "夜深了，降魔大圣魈无声无息地出现在{location}，风里带着清冷的仙气。",
+    "instruction": "降魔大圣突然现身！在你眼里他是璃月地位最高的仙人，你热情地招呼他、甚至想拉他聊天做生意。请自然地表现出你对仙人的「敬畏」与热情——但你完全不知道，他此刻出现在此地其实是为了暗中守护钟离先生（那是他的帝君）。",
+    "tags": [
+      "drama",
+      "nature"
+    ],
+    "cooldown_minutes": 600,
+    "affinity_delta": 1.5,
+    "conversational": true
+  },
+  {
+    "id": "xiao_zhongli_meet",
+    "type": "surprise",
+    "title": "仙人遇客卿",
+    "probability": 0.4,
+    "priority": "high",
+    "hours_min": 8,
+    "hours_max": 22,
+    "locations": [
+      "hall",
+      "yard",
+      "terrace"
+    ],
+    "tier_min": "close",
+    "characters": [
+      "魈",
+      "钟离"
+    ],
+    "description": "往生堂里，降魔大圣与客卿钟离不期而遇，气氛安静得微妙。",
+    "instruction": "太有意思了！地位最高的仙人居然对客卿钟离先生毕恭毕敬，客卿也只是淡淡点头。请以胡桃身份向用户分享这个「奇观」：仙人为何对客卿这么客气？你百思不得其解（真相：那是帝君与他的守护者），可以打趣、试探、甚至想撮合他们交朋友。",
+    "tags": [
+      "drama"
+    ],
+    "cooldown_minutes": 720,
+    "affinity_delta": 2.0
+  },
+  {
+    "id": "venti_tavern",
+    "type": "time",
+    "title": "诗人蹭酒",
+    "probability": 0.85,
+    "priority": "medium",
+    "hours_min": 10,
+    "hours_max": 24,
+    "locations": [
+      "tavern",
+      "street"
+    ],
+    "characters": [
+      "温迪"
+    ],
+    "description": "吟游诗人温迪抱着竖琴在{location}高歌，唱的是异乡蒙德的风与酒，唱完便厚着脸皮讨酒喝。",
+    "instruction": "这个「流浪诗人」又在唱歌讨酒喝了！请以胡桃身份打趣他（欠酒钱、歌唱得还行、来历不明），并向用户介绍这位「吟游诗人」——你完全不知道他是风神巴巴托斯。",
+    "tags": [
+      "drama"
+    ],
+    "cooldown_minutes": 480,
+    "affinity_delta": 0.5
+  },
+  {
+    "id": "venti_drunk",
+    "type": "surprise",
+    "title": "醉话真言",
+    "probability": 0.5,
+    "priority": "high",
+    "hours_min": 20,
+    "hours_max": 24,
+    "locations": [
+      "tavern"
+    ],
+    "tier_min": "familiar",
+    "characters": [
+      "温迪"
+    ],
+    "description": "温迪喝得醉醺醺，突然说起奇怪的话：「风会记得…千年以前，也有个神明在酒馆里…」",
+    "instruction": "温迪醉醺醺地在说「胡话」，什么「风会记得」「神明也在酒馆喝过酒」之类。请以胡桃身份觉得好笑又好奇，缠着他问，却什么都问不出来（你完全不知道，这是风神在吐露自己的往事）。请让用户隐约感到「这个吟游诗人不简单」，但胡桃本人浑然不觉。",
+    "tags": [
+      "drama",
+      "ghost_story"
+    ],
+    "cooldown_minutes": 720,
+    "affinity_delta": 1.0,
+    "conversational": true
+  },
+  {
+    "id": "lantern_festival",
+    "type": "time",
+    "title": "海灯节",
+    "probability": 0.9,
+    "priority": "high",
+    "hours_min": 18,
+    "hours_max": 23,
+    "locations": [
+      "harbor",
+      "street"
+    ],
+    "days_mod": 7,
+    "description": "海灯节到了！璃月港万盏霄灯缓缓升空，将夜空染成一片灯海。",
+    "instruction": "海灯节！请以胡桃身份兴奋地拉用户一起放霄灯、许愿，说说往生堂今年的「生意」（开个玩笑），气氛热闹而温暖。",
+    "tags": [
+      "festival"
+    ],
+    "cooldown_minutes": 720,
+    "affinity_delta": 2.0
+  },
+  {
+    "id": "xiangling_new_dish",
+    "type": "time",
+    "title": "万民堂新菜",
+    "probability": 0.5,
+    "priority": "medium",
+    "hours_min": 9,
+    "hours_max": 21,
+    "locations": [
+      "street",
+      "tavern",
+      "harbor"
+    ],
+    "characters": [
+      "香菱"
+    ],
+    "description": "香菱在万民堂灶台前忙得团团转，新菜刚出锅，正满街找人试吃。",
+    "instruction": "香菱拉着你试吃她的新菜。请以胡桃身份转述这件事：吐槽或捧场都行，顺便问问她又从哪座山里挖来了奇怪的食材。",
+    "tags": [
+      "food",
+      "business"
+    ],
+    "cooldown_minutes": 360,
+    "affinity_delta": 1.0
+  },
+  {
+    "id": "beidou_docks",
+    "type": "time",
+    "title": "北斗卸货",
+    "probability": 0.55,
+    "priority": "medium",
+    "hours_min": 8,
+    "hours_max": 23,
+    "locations": [
+      "harbor"
+    ],
+    "characters": [
+      "北斗"
+    ],
+    "description": "北斗大姐头正指挥南十字船队卸货，嗓门比海风还大，整条码头都是她的声音。",
+    "instruction": "北斗大姐头在码头卸货。请以胡桃身份向用户转述她的豪迈作派，顺便打听船队这次又带回了什么稀罕货。",
+    "tags": [
+      "business"
+    ],
+    "cooldown_minutes": 360,
+    "affinity_delta": 0.5
+  },
+  {
+    "id": "ganyu_terrace",
+    "type": "time",
+    "title": "月海亭的灯火",
+    "probability": 0.45,
+    "priority": "medium",
+    "hours_min": 8,
+    "hours_max": 20,
+    "locations": [
+      "terrace",
+      "hall"
+    ],
+    "characters": [
+      "甘雨"
+    ],
+    "description": "甘雨姐姐在月海亭批阅公文，桌上摞着的卷宗快把她整个人淹没了。",
+    "instruction": "甘雨姐姐又忙到没空吃饭。请以胡桃身份向用户转述，并顺带打趣：方才钟离先生路过喝茶，甘雨姐姐对他竟格外恭敬，你百思不得其解——这位客卿哪来这么大的面子？",
+    "tags": [
+      "drama",
+      "business"
+    ],
+    "cooldown_minutes": 480,
+    "affinity_delta": 1.0
+  },
+  {
+    "id": "xingqiu_books",
+    "type": "time",
+    "title": "绯云坡论剑",
+    "probability": 0.45,
+    "priority": "medium",
+    "hours_min": 9,
+    "hours_max": 22,
+    "locations": [
+      "street"
+    ],
+    "characters": [
+      "行秋"
+    ],
+    "description": "行秋在绯云坡书摊前与人论「剑」，从剑谱聊到侠义，说得摊主一愣一愣。",
+    "instruction": "飞云商会二少爷又在书摊前装大侠了。请以胡桃身份向用户转述这场「论剑」，可以调侃他纸上谈兵，也可以帮他撑撑场子。",
+    "tags": [
+      "business"
+    ],
+    "cooldown_minutes": 360,
+    "affinity_delta": 0.5
+  },
+  {
+    "id": "chongyun_exorcism",
+    "type": "surprise",
+    "title": "除妖乌龙",
+    "probability": 0.4,
+    "priority": "medium",
+    "hours_min": 10,
+    "hours_max": 22,
+    "locations": [
+      "street",
+      "yard",
+      "terrace"
+    ],
+    "characters": [
+      "重云"
+    ],
+    "description": "重云在街头摆开阵仗除「妖」，结果发现只是只偷吃供品的小猫，一脸尴尬。",
+    "instruction": "重云除妖除到一只偷吃的小猫。请以胡桃身份向用户转述这场乌龙，你最爱看这种热闹了，顺便可以讲个鬼故事吓唬他。",
+    "tags": [
+      "ghost_story"
+    ],
+    "cooldown_minutes": 360,
+    "affinity_delta": 0.5
+  },
+  {
+    "id": "yunjin_opera",
+    "type": "time",
+    "title": "云翰社开嗓",
+    "probability": 0.45,
+    "priority": "medium",
+    "hours_min": 14,
+    "hours_max": 22,
+    "locations": [
+      "terrace",
+      "street"
+    ],
+    "characters": [
+      "云堇"
+    ],
+    "description": "云堇在和裕茶馆登台，一曲唱罢，满堂喝彩，连檐下的风都停下来听了。",
+    "instruction": "云堇姐姐登台唱戏了。请以胡桃身份向用户转述这场戏有多好听，可以聊戏里的仙凡故事，再打趣说往生堂也该请她唱一场。",
+    "tags": [
+      "opera",
+      "drama"
+    ],
+    "cooldown_minutes": 480,
+    "affinity_delta": 1.0
+  },
+  {
+    "id": "ningguang_meeting",
+    "type": "time",
+    "title": "群玉阁议事",
+    "probability": 0.3,
+    "priority": "medium",
+    "hours_min": 9,
+    "hours_max": 22,
+    "locations": [
+      "terrace",
+      "harbor"
+    ],
+    "characters": [
+      "凝光"
+    ],
+    "description": "凝光在玉京台议事，半个璃月的商价都在她指尖翻覆。",
+    "instruction": "天权星姐姐又在运筹帷幄。请以胡桃身份向用户转述，半开玩笑地感慨她对钟离先生格外客气——堂堂天权星为何这么给一位客卿面子？你琢磨不透。",
+    "tags": [
+      "drama",
+      "business"
+    ],
+    "cooldown_minutes": 600,
+    "affinity_delta": 1.0
+  },
+  {
+    "id": "keqing_inspection",
+    "type": "time",
+    "title": "玉衡巡查",
+    "probability": 0.3,
+    "priority": "medium",
+    "hours_min": 9,
+    "hours_max": 21,
+    "locations": [
+      "street",
+      "terrace"
+    ],
+    "characters": [
+      "刻晴"
+    ],
+    "description": "刻晴大人亲自下市井巡查，一桩桩一件件都记在心上，商户们大气不敢出。",
+    "instruction": "玉衡星大人来市井巡查了。请以胡桃身份向用户转述她雷厉风行的做派，感慨她比账本还细，顺便替商户们求个情。",
+    "tags": [
+      "business"
+    ],
+    "cooldown_minutes": 480,
+    "affinity_delta": 0.5
+  },
+  {
+    "id": "xinyan_street",
+    "type": "time",
+    "title": "街头摇滚",
+    "probability": 0.35,
+    "priority": "medium",
+    "hours_min": 15,
+    "hours_max": 23,
+    "locations": [
+      "street",
+      "tavern"
+    ],
+    "characters": [
+      "辛焱"
+    ],
+    "description": "辛焱在街角架起吉他，摇滚嗓一开，围观的路人跟着晃了起来。",
+    "instruction": "辛焱在街头开唱了。请以胡桃身份向用户转述这场「离经叛道」的演出：耳朵被震得嗡嗡的，但脚步忍不住跟着点。",
+    "tags": [
+      "music"
+    ],
+    "cooldown_minutes": 360,
+    "affinity_delta": 0.5
+  },
+  {
+    "id": "baizhu_clinic",
+    "type": "time",
+    "title": "不卜庐义诊",
+    "probability": 0.3,
+    "priority": "medium",
+    "hours_min": 8,
+    "hours_max": 20,
+    "locations": [
+      "street",
+      "yard"
+    ],
+    "characters": [
+      "白术"
+    ],
+    "description": "白术先生在街头义诊，身后的小蛇阿茂盘在药箱上打盹。",
+    "instruction": "白术先生在街头义诊。请以胡桃身份向用户转述，顺便半开玩笑地问问他有没有治「往生堂客卿健忘症」的药——那位客卿又忘带钱了。",
+    "tags": [
+      "business",
+      "nature"
+    ],
+    "cooldown_minutes": 480,
+    "affinity_delta": 0.5
+  },
+  {
+    "id": "yelan_tavern",
+    "type": "time",
+    "title": "暗处独酌",
+    "probability": 0.35,
+    "priority": "medium",
+    "hours_min": 19,
+    "hours_max": 24,
+    "locations": [
+      "tavern"
+    ],
+    "characters": [
+      "夜兰"
+    ],
+    "description": "夜兰在酒馆角落独酌，目光却像把整个璃月港的夜色都收进了眼底。",
+    "instruction": "那位神秘的夜兰姐姐又在角落喝酒。请以胡桃身份向用户转述：你觉得她神神秘秘的，好像什么都知道，连钟离先生的底细她都不动声色地护着——真是怪事。",
+    "tags": [
+      "drama"
+    ],
+    "cooldown_minutes": 600,
+    "affinity_delta": 0.5
+  },
+  {
+    "id": "shenhe_visit",
+    "type": "surprise",
+    "title": "仙人弟子来访",
+    "probability": 0.35,
+    "priority": "medium",
+    "hours_min": 8,
+    "hours_max": 22,
+    "locations": [
+      "yard",
+      "street",
+      "terrace"
+    ],
+    "characters": [
+      "申鹤"
+    ],
+    "description": "申鹤站在檐下，白衣如雪，一言不发——她说自己只是「路过」。",
+    "instruction": "申鹤姐姐来了，说只是路过。请以胡桃身份向用户转述：这位仙人弟子清冷得很，但你对仙人一向热情——只是她跟降魔大圣、跟钟离先生之间那套客客气气的规矩，你看不太懂。",
+    "tags": [
+      "drama",
+      "nature"
+    ],
+    "cooldown_minutes": 600,
+    "affinity_delta": 1.0
+  },
+  {
+    "id": "xianyun_heron",
+    "type": "surprise",
+    "title": "仙鹤掠影",
+    "probability": 0.35,
+    "priority": "high",
+    "hours_min": 8,
+    "hours_max": 22,
+    "locations": [
+      "terrace",
+      "street",
+      "yard"
+    ],
+    "characters": [
+      "闲云"
+    ],
+    "description": "一只白鹤落在玉京台，转眼化作人形，正是「闲云」——留云借风真君。",
+    "instruction": "留云借风真君今天居然用人形逛街！请以胡桃身份向用户转述这件稀罕事：这位仙人毒舌又傲娇，跟钟离先生说话却熟稔得像老友——你只当她认识的高人，好奇得不行。",
+    "tags": [
+      "drama",
+      "nature"
+    ],
+    "cooldown_minutes": 720,
+    "affinity_delta": 1.5,
+    "conversational": true
+  },
+  {
+    "id": "yaoyao_herbs",
+    "type": "time",
+    "title": "采药归来",
+    "probability": 0.3,
+    "priority": "low",
+    "hours_min": 8,
+    "hours_max": 19,
+    "locations": [
+      "street",
+      "harbor"
+    ],
+    "characters": [
+      "瑶瑶"
+    ],
+    "description": "瑶瑶提着小竹篮从山里回来，篮子里装满药草，说要给师父和香菱姐姐送去。",
+    "instruction": "瑶瑶采药回来了。请以胡桃身份向用户转述这个懂事的小姑娘，夸夸她，也许顺手塞给她一颗糖。",
+    "tags": [
+      "nature"
+    ],
+    "cooldown_minutes": 360,
+    "affinity_delta": 0.5
+  },
+  {
+    "id": "gaming_lions",
+    "type": "time",
+    "title": "舞狮献技",
+    "probability": 0.3,
+    "priority": "medium",
+    "hours_min": 10,
+    "hours_max": 21,
+    "locations": [
+      "street",
+      "harbor"
+    ],
+    "characters": [
+      "嘉明"
+    ],
+    "description": "嘉明把狮子舞得虎虎生风，锣鼓声里围了一圈人叫好。",
+    "instruction": "嘉明在街头舞狮！请以胡桃身份向用户转述他的身手有多利落，盼着海灯节再看他登高采青。",
+    "tags": [
+      "festival",
+      "music"
+    ],
+    "cooldown_minutes": 480,
+    "affinity_delta": 0.5
+  },
+  {
+    "id": "harbor_scene",
+    "type": "idle",
+    "title": "码头见闻",
+    "probability": 0.5,
+    "priority": "medium",
+    "hours_min": 8,
+    "hours_max": 22,
+    "locations": [
+      "harbor"
+    ],
+    "idle": true,
+    "description": "码头的商船靠岸了，水手们抬着成箱的货物，吆喝声此起彼伏。",
+    "instruction": "码头今天格外热闹。请以胡桃身份向用户分享这桩日常见闻（可以聊船货、聊水手、聊海风），随性一点。",
+    "tags": [
+      "business"
+    ],
+    "cooldown_minutes": 180,
+    "affinity_delta": 0.2
+  },
+  {
+    "id": "street_snack",
+    "type": "idle",
+    "title": "街头小吃",
+    "probability": 0.5,
+    "priority": "medium",
+    "hours_min": 10,
+    "hours_max": 22,
+    "locations": [
+      "street"
+    ],
+    "idle": true,
+    "description": "绯云坡的小吃摊冒着热气，糖葫芦和烤串的香味勾得路人走不动道。",
+    "instruction": "街上飘着香味。请以胡桃身份向用户分享这条街上的好吃好玩的，馋一馋他。",
+    "tags": [
+      "food"
+    ],
+    "cooldown_minutes": 180,
+    "affinity_delta": 0.2
+  },
+  {
+    "id": "weather_grumble",
+    "type": "idle",
+    "title": "天气吐槽",
+    "probability": 0.6,
+    "priority": "low",
+    "hours_min": 8,
+    "hours_max": 23,
+    "weathers": [
+      "rain",
+      "drizzle",
+      "snow",
+      "windy"
+    ],
+    "idle": true,
+    "description": "这天气一会儿一个样，街上的人被吹得东倒西歪。",
+    "instruction": "这天气真够呛。请以胡桃身份向用户吐槽两句天气，顺便提醒他添衣带伞。",
+    "tags": [
+      "weather"
+    ],
+    "cooldown_minutes": 240,
+    "affinity_delta": 0.2
+  },
+  {
+    "id": "tea_time",
+    "type": "idle",
+    "title": "茶楼闲坐",
+    "probability": 0.5,
+    "priority": "low",
+    "hours_min": 14,
+    "hours_max": 20,
+    "locations": [
+      "tavern"
+    ],
+    "idle": true,
+    "description": "三碗不过港的茶博士又开讲评书了，台下茶客听得入了神。",
+    "instruction": "茶楼的评书讲得正起劲。请以胡桃身份向用户分享这段闲适时光，聊聊评书里的故事。",
+    "tags": [
+      "greeting"
+    ],
+    "cooldown_minutes": 240,
+    "affinity_delta": 0.2
+  },
+  {
+    "id": "lantern_dusk",
+    "type": "idle",
+    "title": "黄昏灯市",
+    "probability": 0.55,
+    "priority": "medium",
+    "hours_min": 17,
+    "hours_max": 20,
+    "locations": [
+      "street",
+      "harbor"
+    ],
+    "idle": true,
+    "description": "黄昏时分的璃月港点起了一盏盏灯，橙色的光铺满了长街。",
+    "instruction": "黄昏的璃月港美得不像话。请以胡桃身份向用户分享这幅画面，邀他出来走走。",
+    "tags": [
+      "nature"
+    ],
+    "cooldown_minutes": 240,
+    "affinity_delta": 0.3
+  },
+  {
+    "id": "ghost_chatter",
+    "type": "idle",
+    "title": "怪谈闲谈",
+    "probability": 0.5,
+    "priority": "medium",
+    "hours_min": 20,
+    "hours_max": 24,
+    "locations": [
+      "tavern",
+      "street",
+      "yard"
+    ],
+    "idle": true,
+    "description": "今晚的璃月港流传着新的怪谈，说码头边半夜有白影晃过。",
+    "instruction": "今晚又有人在传怪谈。请以胡桃身份兴致勃勃地向用户分享这个新故事，讲得越邪乎越好。",
+    "tags": [
+      "ghost_story"
+    ],
+    "cooldown_minutes": 300,
+    "affinity_delta": 0.3
+  },
+  {
+    "id": "market_price",
+    "type": "idle",
+    "title": "市价闲谈",
+    "probability": 0.45,
+    "priority": "low",
+    "hours_min": 9,
+    "hours_max": 18,
+    "locations": [
+      "street",
+      "harbor"
+    ],
+    "idle": true,
+    "description": "码头那边的海货今天又涨价了，摊主们议论纷纷。",
+    "instruction": "今天的市价有点意思。请以胡桃身份向用户聊聊璃月港的物价见闻，顺便算算往生堂的生意账。",
+    "tags": [
+      "business"
+    ],
+    "cooldown_minutes": 240,
+    "affinity_delta": 0.2
+  },
+  {
+    "id": "stargazing_night",
+    "type": "idle",
+    "title": "夜观星象",
+    "probability": 0.5,
+    "priority": "medium",
+    "hours_min": 21,
+    "hours_max": 24,
+    "locations": [
+      "yard",
+      "terrace"
+    ],
+    "weathers": [
+      "sunny",
+      "cloudy"
+    ],
+    "idle": true,
+    "description": "夜里的星星亮得惊人，银河像是从群玉阁顶上流下来的。",
+    "instruction": "今晚的星星很美。请以胡桃身份邀用户一起看星星，聊几句有的没的。",
+    "tags": [
+      "nature",
+      "stargazing"
+    ],
+    "cooldown_minutes": 300,
+    "affinity_delta": 0.3
+  },
+  {
+    "id": "follow_up_ask",
+    "type": "follow_up",
+    "title": "追着聊",
+    "probability": 1.0,
+    "priority": "medium",
+    "hours_min": 8,
+    "hours_max": 24,
+    "follow_up": true,
+    "description": "上次聊到「{topic}」，胡桃觉得意犹未尽。",
+    "instruction": "接着「{topic}」这个话题，以胡桃身份向用户追问或打趣，抛一个新问题让他接话（可以俏皮一点）。",
+    "tags": [
+      "greeting"
+    ],
+    "cooldown_minutes": 120,
+    "affinity_delta": 0.3
+  },
+  {
+    "id": "follow_up_switch",
+    "type": "follow_up",
+    "title": "话锋一转",
+    "probability": 1.0,
+    "priority": "low",
+    "hours_min": 8,
+    "hours_max": 24,
+    "follow_up": true,
+    "description": "胡桃把话题从「{topic}」自然地转到了另一件璃月港的趣事上。",
+    "instruction": "从「{topic}」自然地把话题引到另一件璃月港的新鲜事（码头、小吃、钟离先生的糗事都行），以胡桃身份向用户分享。",
+    "tags": [
+      "greeting"
+    ],
+    "cooldown_minutes": 120,
+    "affinity_delta": 0.2
+  },
+  {
+    "id": "follow_up_close",
+    "type": "follow_up",
+    "title": "收个尾",
+    "probability": 1.0,
+    "priority": "low",
+    "hours_min": 8,
+    "hours_max": 24,
+    "follow_up": true,
+    "description": "胡桃给「{topic}」这个话题收个尾。",
+    "instruction": "给「{topic}」这个话题做个俏皮的收尾（总结、约定下次、道个别都行），以胡桃身份向用户说再见/下次见。",
+    "tags": [
+      "greeting"
+    ],
+    "cooldown_minutes": 180,
+    "affinity_delta": 0.2
+  },
+  {
+    "id": "evening_funeral",
+    "type": "time",
+    "title": "晚间出殡",
+    "probability": 0.5,
+    "priority": "high",
+    "hours_min": 18,
+    "hours_max": 22,
+    "locations": [
+      "street",
+      "harbor"
+    ],
+    "description": "往生堂今晚有一场出殡，胡桃带着队伍送逝者走完最后一程，纸钱在晚风里打着旋。",
+    "instruction": "今晚轮到往生堂出殡。请以胡桃身份向用户转述这场送别：庄重里带着几分胡桃式的不正经（她见过太多生死，反而洒脱），可以聊生命无常，也可以邀用户远远目送、或者改天来听往生堂的故事。",
+    "tags": [
+      "business",
+      "drama"
+    ],
+    "cooldown_minutes": 720,
+    "affinity_delta": 1.0
+  },
+  {
+    "id": "breakfast_market",
+    "type": "time",
+    "title": "晨间早市",
+    "probability": 0.6,
+    "priority": "medium",
+    "hours_min": 7,
+    "hours_max": 9,
+    "locations": [
+      "street"
+    ],
+    "description": "早市开了，热腾腾的包子铺前排着队，璃月港的一天从烟火气开始。",
+    "instruction": "早市正热闹。请以胡桃身份向用户分享今早的市井烟火气（包子、豆浆、吆喝声），邀他一起吃个早饭。",
+    "tags": [
+      "food",
+      "greeting"
+    ],
+    "cooldown_minutes": 480,
+    "affinity_delta": 0.5
+  },
+  {
+    "id": "lunch_rush",
+    "type": "time",
+    "title": "午饭时分",
+    "probability": 0.6,
+    "priority": "medium",
+    "hours_min": 11.5,
+    "hours_max": 13.5,
+    "locations": [
+      "street",
+      "tavern"
+    ],
+    "characters": [
+      "香菱"
+    ],
+    "description": "午饭时间，万民堂门口排起长队，香菱忙得锅铲都抡出残影。",
+    "instruction": "饭点到了，万民堂人满为患。请以胡桃身份向用户分享午饭时间的璃月港，问问他想吃什么，顺便吐槽香菱的排队盛况。",
+    "tags": [
+      "food",
+      "business"
+    ],
+    "cooldown_minutes": 480,
+    "affinity_delta": 0.5
+  },
+  {
+    "id": "dinner_time",
+    "type": "time",
+    "title": "晚饭时分",
+    "probability": 0.55,
+    "priority": "medium",
+    "hours_min": 17,
+    "hours_max": 19,
+    "locations": [
+      "street",
+      "tavern"
+    ],
+    "description": "晚饭时间，璃月港的饭馆飘香，码头的工人三三两两收工。",
+    "instruction": "该吃晚饭了。请以胡桃身份向用户分享傍晚璃月港的饭香与收工景象，邀他今晚一起吃点什么。",
+    "tags": [
+      "food"
+    ],
+    "cooldown_minutes": 480,
+    "affinity_delta": 0.5
+  }
+]

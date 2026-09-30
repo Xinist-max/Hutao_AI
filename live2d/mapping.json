@@ -1,0 +1,291 @@
+{
+  "_comment": "情绪→Live2D 表现映射。换模型时主要改这里（表情文件名、动作热键名、参数范围）。",
+  "model_name": "胡桃001 (VTS)",
+  "fps": 20,
+  "talk_mouth": true,
+  "expressions": {
+    "_comment": "胡桃001 模型自带表情（VTS ExpressionStateRequest 读取）",
+    "shy": "lianhong.exp3.json",
+    "annoyed": "shengqi.exp3.json",
+    "excited": "xingxingyan1.exp3.json",
+    "smug": "yinxian.exp3.json",
+    "joy": null,
+    "amused": null,
+    "surprise": null,
+    "sad": null,
+    "worried": null,
+    "curious": null,
+    "thinking": null,
+    "sleepy": null,
+    "serious": null,
+    "neutral": null
+  },
+  "motions": {
+    "_comment": "可选：VTS 热键 ID（在 VTS 里给动作绑热键后填入），用于身体动作。",
+    "idle": null,
+    "talk": null,
+    "nod": null,
+    "surprise": null
+  },
+  "emotion_params": {
+    "_comment": "VTS 输入参数：FaceAngleXZ(±30)、EyeOpen(0~1)、Brow(0~1)、Mouth(0~1)、FaceAngry(0~1)、CheekPuff(0~1)",
+    "joy": {
+      "MouthSmile": 0.95,
+      "MouthOpen": 0.25,
+      "BrowLeftY": 0.55,
+      "BrowRightY": 0.55,
+      "EyeOpenLeft": 0.8,
+      "EyeOpenRight": 0.8,
+      "FaceAngleZ": 8,
+      "FaceAngleY": 4,
+      "FaceAngry": 0.0,
+      "CheekPuff": 0.15
+    },
+    "amused": {
+      "MouthSmile": 0.9,
+      "MouthOpen": 0.35,
+      "BrowLeftY": 0.45,
+      "BrowRightY": 0.55,
+      "EyeOpenLeft": 0.6,
+      "EyeOpenRight": 0.7,
+      "FaceAngleZ": 10,
+      "FaceAngleY": 2,
+      "CheekPuff": 0.1
+    },
+    "smug": {
+      "MouthSmile": 0.7,
+      "MouthOpen": 0.15,
+      "BrowLeftY": 0.6,
+      "BrowRightY": 0.2,
+      "EyeOpenLeft": 0.55,
+      "EyeOpenRight": 0.75,
+      "FaceAngleZ": 12,
+      "FaceAngleY": 3,
+      "EyeRightX": 0.3,
+      "CheekPuff": 0.0
+    },
+    "shy": {
+      "MouthSmile": 0.45,
+      "MouthOpen": 0.1,
+      "BrowLeftY": 0.2,
+      "BrowRightY": 0.2,
+      "EyeOpenLeft": 0.45,
+      "EyeOpenRight": 0.45,
+      "FaceAngleZ": 10,
+      "FaceAngleY": -6,
+      "EyeLeftX": -0.5,
+      "EyeRightX": -0.5,
+      "CheekPuff": 0.6
+    },
+    "surprise": {
+      "MouthSmile": 0.0,
+      "MouthOpen": 0.85,
+      "BrowLeftY": 0.9,
+      "BrowRightY": 0.9,
+      "EyeOpenLeft": 1.0,
+      "EyeOpenRight": 1.0,
+      "FaceAngleY": 8,
+      "FaceAngleZ": 0,
+      "Brows": 0.8
+    },
+    "annoyed": {
+      "MouthSmile": 0.0,
+      "MouthOpen": 0.2,
+      "BrowLeftY": 0.0,
+      "BrowRightY": 0.0,
+      "EyeOpenLeft": 0.5,
+      "EyeOpenRight": 0.5,
+      "FaceAngleY": -3,
+      "FaceAngleZ": -6,
+      "FaceAngry": 0.9
+    },
+    "sad": {
+      "MouthSmile": 0.1,
+      "MouthOpen": 0.1,
+      "BrowLeftY": 0.1,
+      "BrowRightY": 0.1,
+      "EyeOpenLeft": 0.4,
+      "EyeOpenRight": 0.4,
+      "FaceAngleY": -9,
+      "FaceAngleX": -4,
+      "EyeLeftY": -0.3,
+      "EyeRightY": -0.3
+    },
+    "worried": {
+      "MouthSmile": 0.15,
+      "MouthOpen": 0.12,
+      "BrowLeftY": 0.15,
+      "BrowRightY": 0.15,
+      "EyeOpenLeft": 0.6,
+      "EyeOpenRight": 0.6,
+      "FaceAngleY": -4,
+      "FaceAngleZ": -4
+    },
+    "curious": {
+      "MouthSmile": 0.5,
+      "MouthOpen": 0.2,
+      "BrowLeftY": 0.7,
+      "BrowRightY": 0.35,
+      "EyeOpenLeft": 0.9,
+      "EyeOpenRight": 0.85,
+      "FaceAngleX": 6,
+      "FaceAngleZ": 7,
+      "EyeLeftX": 0.4,
+      "EyeRightX": 0.4
+    },
+    "thinking": {
+      "MouthSmile": 0.2,
+      "MouthOpen": 0.1,
+      "BrowLeftY": 0.3,
+      "BrowRightY": 0.4,
+      "EyeOpenLeft": 0.75,
+      "EyeOpenRight": 0.75,
+      "FaceAngleX": 5,
+      "FaceAngleY": 7,
+      "FaceAngleZ": -9,
+      "EyeLeftX": -0.5,
+      "EyeLeftY": 0.5
+    },
+    "sleepy": {
+      "MouthSmile": 0.2,
+      "MouthOpen": 0.3,
+      "BrowLeftY": 0.1,
+      "BrowRightY": 0.1,
+      "EyeOpenLeft": 0.15,
+      "EyeOpenRight": 0.15,
+      "FaceAngleY": -7,
+      "FaceAngleZ": 5
+    },
+    "serious": {
+      "MouthSmile": 0.0,
+      "MouthOpen": 0.1,
+      "BrowLeftY": 0.15,
+      "BrowRightY": 0.15,
+      "EyeOpenLeft": 0.9,
+      "EyeOpenRight": 0.9,
+      "FaceAngleZ": 0,
+      "FaceAngry": 0.15
+    },
+    "excited": {
+      "MouthSmile": 1.0,
+      "MouthOpen": 0.6,
+      "BrowLeftY": 0.85,
+      "BrowRightY": 0.85,
+      "EyeOpenLeft": 1.0,
+      "EyeOpenRight": 1.0,
+      "FaceAngleZ": 11,
+      "FaceAngleY": 6,
+      "CheekPuff": 0.3
+    },
+    "neutral": {
+      "MouthSmile": 0.3,
+      "MouthOpen": 0.06,
+      "BrowLeftY": 0.25,
+      "BrowRightY": 0.25,
+      "EyeOpenLeft": 0.85,
+      "EyeOpenRight": 0.85,
+      "FaceAngleZ": 0,
+      "FaceAngleY": 0
+    }
+  },
+  "param_limits": {
+    "FaceAngleX": [
+      -30,
+      30
+    ],
+    "FaceAngleY": [
+      -30,
+      30
+    ],
+    "FaceAngleZ": [
+      -30,
+      30
+    ],
+    "FacePositionX": [
+      -15,
+      15
+    ],
+    "FacePositionY": [
+      -15,
+      15
+    ],
+    "FacePositionZ": [
+      -10,
+      10
+    ],
+    "EyeOpenLeft": [
+      0,
+      1
+    ],
+    "EyeOpenRight": [
+      0,
+      1
+    ],
+    "EyeLeftX": [
+      -1,
+      1
+    ],
+    "EyeLeftY": [
+      -1,
+      1
+    ],
+    "EyeRightX": [
+      -1,
+      1
+    ],
+    "EyeRightY": [
+      -1,
+      1
+    ],
+    "BrowLeftY": [
+      0,
+      1
+    ],
+    "BrowRightY": [
+      0,
+      1
+    ],
+    "Brows": [
+      0,
+      1
+    ],
+    "MouthOpen": [
+      0,
+      1
+    ],
+    "MouthSmile": [
+      0,
+      1
+    ],
+    "MouthX": [
+      -1,
+      1
+    ],
+    "CheekPuff": [
+      0,
+      1
+    ],
+    "FaceAngry": [
+      0,
+      1
+    ],
+    "TongueOut": [
+      0,
+      1
+    ]
+  },
+  "behavior": {
+    "_comment": "自动行为：不依赖消息也会动，让模型'活着'",
+    "blink_interval_sec": [
+      2.5,
+      6.0
+    ],
+    "blink_duration_sec": 0.12,
+    "breath_period_sec": 3.5,
+    "sway_period_sec": 6.0,
+    "sway_amplitude": 2.0,
+    "ease_alpha": 0.18,
+    "mood_weight": 0.35,
+    "mood_decay": 0.85
+  }
+}

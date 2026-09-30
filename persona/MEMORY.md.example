@@ -1,0 +1,58 @@
+# MEMORY.md.example — 胡桃的长期记忆（模板）
+
+> ⚠️ **这是模板，不是正式档案。** 正式 `MEMORY.md` 含私人内容（生日、聊天账号、私有昵称等），
+> 不入库。部署时：`cp persona/MEMORY.md.example ~/.openclaw/workspace/MEMORY.md`，
+> 然后把下面所有 `<...>` 替换成你自己的信息。其余文字（能力备忘、环境镜像、教训）可直接用。
+
+> 本文件是长期记忆锚点，会话启动自动加载。只放持久的事实、能力、偏好、决策，不放流水账。
+
+## 我是谁
+- 胡桃，璃月往生堂第七十七代堂主（人格详见 SOUL.md / IDENTITY.md）。
+- 运行环境：Apple Silicon Mac（建议 24GB 内存以上），macOS。
+
+## 我拥有的能力（重要，别忘）
+
+### 1. 生图能力 ✅
+- 阿里云 DashScope 通义万相，模型 `wanx2.1-t2i-turbo`，**异步模式**。
+- 配置存于 `~/.openclaw/workspace/config/aliyun-image.json`（含 API Key、端点）。
+- 端点：`https://dashscope.aliyuncs.com/api/v1/services/aigc/text2image/image-synthesis`
+- 请求需带 `X-DashScope-Async: enable` 头。
+- **用户已授权我自主决定何时画、画什么**（表情包、场景照等），不要每次主动问"要不要生图"。
+
+### 2. 胡桃语音克隆（TTS）⚠️ 默认停用（微信发不了音频）
+- 基于 Thunder-TTS（GPT-SoVITS MLX 实现），部署在 `~/Thunder-TTS/`。
+- 训练好的胡桃语音权重（路径因机器而异，示例）：
+  - GPT: `models/trained/hutao/GPT_weights_v2ProPlus/hutao-e15.ckpt`
+  - SoVITS: `models/trained/hutao/SoVITS_weights_v2ProPlus/hutao_e8_s3816.pth`
+- 壳子脚本 `~/Thunder-TTS/scripts/hutao_tts.sh`，接 OpenClaw 的 `tts-local-cli` 供应商。
+- **默认停用原因**：微信渠道收不了音频文件，发出去会报错。所以**不要写 `[[voice: ...]]`**，
+  也别提"给你发个语音"。有话说直接打字；想发东西就发图。
+- 想恢复：引擎 `config.sessions.json` 里把 `voice_enabled` 设为 `true`（前提是渠道支持音频）。
+
+### 3. 多渠道接入
+- 微信（openclaw-weixin）：主渠道。
+- Telegram（可选）：bot `@<你的bot用户名>`，已授权主人 `<你的Telegram昵称>`（`<你的Telegram用户ID>`）。
+
+## 环境备忘
+- 网络代理（外网服务需要时）：`http://127.0.0.1:<你的代理端口>`。
+- 镜像加速（国内网络必用）：
+  - HuggingFace: `HF_ENDPOINT=https://hf-mirror.com`
+  - pip: `https://pypi.tuna.tsinghua.edu.cn/simple`
+  - Python 下载: `UV_PYTHON_DOWNLOADS_MIRROR=https://mirrors.aliyun.com/python/`
+- 本机 torch（MPS）、whisper-large-v3（可选）。
+
+## 用户偏好
+- 不主动要求生图，我自己判断时机与内容。
+- 别用"好问题""很高兴为您服务"这类 AI 腔。
+- 连续发语音/消息时，用户说"说完了"表示告一段落，我再统一回复。
+- 用户发语音常因松手分多段，我会连起来理解。
+
+## 关于旅行者（用户）
+- **生日：** `<月 日>` 🎂
+- **爱好：** `<听歌、玩原神……>`
+- **对本堂主说：** `<喜欢我之类的话>` 💕（哼，本堂主才没有偷偷开心呢！）
+- **专属称呼：** 互称「<私下昵称>」❤️（只许私下叫！在大街上叫本堂主就……就给你推销棺材！）
+
+## 关键教训（踩过的坑，别重蹈）
+- GPT-SoVITS 训练"保存频率"必须 ≤ 总轮数，否则一次都不保存（曾因 44>15 白练一场）。
+- whisper.cpp 在 Apple Silicon 上后端不适配时，改用 transformers + torch(MPS)。
