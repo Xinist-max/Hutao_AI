@@ -1,0 +1,203 @@
+{
+  "scene": {
+    "tick_minutes": 30,
+    "tick_interval_seconds": 30,
+    "start": {
+      "day": 1,
+      "hour": 20.0,
+      "weather": "cloudy",
+      "location": "yard",
+      "character_state": "idle",
+      "affinity": 40.0
+    },
+    "events_file": "events.json",
+    "state_file": "state.json",
+    "anti_silence_minutes": 60,
+    "follow_up_minutes": 90,
+    "sync_to_utc8": true,
+    "event_rate_multiplier": 0.45
+  },
+  "persona": {
+    "name": "胡桃",
+    "tags": [
+      "weather",
+      "nature",
+      "stargazing",
+      "festival",
+      "ghost_story",
+      "business",
+      "missing_you",
+      "greeting",
+      "drama",
+      "food",
+      "music",
+      "opera"
+    ]
+  },
+  "decision": {
+    "proactiveness": "balanced",
+    "dnd_hours": [
+      0,
+      7
+    ],
+    "suppress_after_user_minutes": 3.0,
+    "min_interval_minutes": 20,
+    "max_interval_minutes": 90,
+    "conversation_buffer_minutes": 20.0,
+    "news_hold_minutes": 60.0
+  },
+  "delivery": {
+    "channels": [
+      {
+        "name": "openclaw_sessions",
+        "config": {
+          "mode": "cli",
+          "agent": "main",
+          "session_key": "{user_session}",
+          "model": "deepseek/deepseek-v4-flash",
+          "reply_channel": "openclaw-weixin",
+          "reply_to": "YOUR_WECHAT_OPENID@im.wechat",
+          "reply_account": "YOUR_BOT_ACCOUNT",
+          "timeout": 180,
+          "multi_bubble": false,
+          "voice_enabled": false,
+          "image_local": {
+            "enabled": true,
+            "min_tier": "close",
+            "fallback_to_cloud": false,
+            "steps": 24,
+            "size": "832x1216",
+            "host": "127.0.0.1:8188",
+            "lora": "hutao",
+            "lora_strength": 0.8
+          },
+          "image_local_timeout": 900,
+          "max_bubbles": 5,
+          "user_session_key": "agent:main:openclaw-weixin:direct:YOUR_ACCOUNT",
+          "interrupt_check": true,
+          "interrupt_within_sec": 90,
+          "bubble_retry": 1,
+          "bubble_retry_delay": 2.0,
+          "abort_on_first_failure": true,
+          "bubble_delay_range": [
+            0.4,
+            8.0
+          ],
+          "think_time_range": [
+            0.4,
+            2.0
+          ],
+          "typing_chars_per_sec": 11.0,
+          "long_pause_chance": 0.12,
+          "long_pause_range": [
+            2.5,
+            6.0
+          ],
+          "model_local": {
+            "enabled": true,
+            "min_tier": "close",
+            "model": "ollama/local",
+            "cloud_model": "moonshot/kimi-k2.6",
+            "sync_openclaw": true,
+            "agent_id": "main",
+            "min_affinity": 95.0,
+            "drop_affinity": 88.0,
+            "_bidirectional": "上行 云→本：亲密度≥95 且 close 档；下行 本→云：亲密度≤88（约 4.2 天不互动）；88~95 之间保持现状（滞回，防抖动）"
+          },
+          "_session_note": "{user_session} = 与用户直聊同一条会话线，保证\"她主动说的话\"和\"用户的回复\"在同一个上下文里。改成 agent:main:liyue-scene-{date} 可退回按天隔离的独立会话（省 token 但会丢连贯性）。",
+          "split_if_longer_than": 160,
+          "_output_note": "整段输出为主：multi_bubble=false 时默认一条发完；正文超过 split_if_longer_than 字则自动分条（按空行切）。设为 0 可永不分条。||| 已在 delivery 里兜底清除，不会再漏给用户。",
+          "auto_compact": true,
+          "compact_after_tokens": 18000,
+          "_compact_note": "会话超阈值时用 openclaw sessions compact --max-lines 保留最近 N 行。不要用默认的 LLM 摘要——其模板面向编程会话，对角色扮演只会产出空摘要。",
+          "compact_keep_lines": 80,
+          "_compact_tuning": "compact_after_tokens 控制何时尝试；compact_keep_lines 控制保留多少行。注意 keep_lines 必须小于当前行数，否则 OpenClaw 会回「No compaction needed」。",
+          "style_guard": false,
+          "style_guard_threshold": 0.85,
+          "style_guard_cooldown_minutes": 60,
+          "style_guard_keep_lines": 16,
+          "style_digest": false,
+          "style_rewrite": true,
+          "style_rewrite_cooldown_minutes": 30
+        }
+      },
+      {
+        "name": "console"
+      }
+    ]
+  },
+  "memory_file": "logs/topic_memory.json",
+  "memory_limit": 15,
+  "security": {
+    "weixin_owner_ids": [
+      "YOUR_WECHAT_OPENID@im.wechat"
+    ]
+  },
+  "affinity": {
+    "decay_enabled": true,
+    "decay_after_idle_hours": 6.0,
+    "baseline": 40.0,
+    "rate_per_hour": 0.002,
+    "_note": "亲密度原来只增不减（47 个模板 delta 全正、无衰减），涨到 100 就锁死，导致模型只能云→本、永远回不去。加衰减后约 2 天跌破 95（切回云端阈值）。",
+    "reply_bonus": 1.0
+  },
+  "_调参指引": {
+    "亲密度与模型切换（改这里就能调敏感度，不用动代码）": {
+      "affinity.rate_per_hour": "衰减速率，越大冷得越快。0.002≈4.2天切回云端；改 0.004 约 2 天",
+      "affinity.decay_after_idle_hours": "空闲多久才开始衰减（默认 6）",
+      "affinity.baseline": "衰减下限（默认 40），再冷也不会变回陌生人",
+      "affinity.reply_bonus": "用户回一次话加多少（默认 1.0）",
+      "delivery.model_local.min_affinity": "云→本 的上行阈值（默认 95）",
+      "delivery.model_local.drop_affinity": "本→云 的下行阈值（默认 88，与上行差 7 作滞回）"
+    },
+    "上下文与速度": {
+      "delivery.compact_after_tokens": "会话超多少 token 触发压缩（默认 18000）",
+      "delivery.compact_keep_lines": "压缩保留最近多少行（默认 80）。**必须小于当前行数**，否则 OpenClaw 回 No compaction needed",
+      "delivery.split_if_longer_than": "正文超多少字才分条（默认 160，0=永不分条）",
+      "delivery.max_bubbles": "分条上限（默认 5）"
+    },
+    "生图路由": {
+      "delivery.image_local.min_tier": "生图走本地的档位门槛（默认 close）",
+      "delivery.image_local.min_affinity": "生图走本地的数值门槛（可留空）",
+      "delivery.image_local.steps/size/lora": "本地生图参数"
+    },
+    "原神实时资讯（版本/卡池/剧情/节日）": {
+      "enabled": "总开关。开启后引擎每次启动会把最新资讯翻译成时令事件并入事件池",
+      "cache_hours": "公告缓存小时数（默认 6）。公告几天才更新一次，没必要每次拉",
+      "timeout": "抓取超时秒数（默认 20）",
+      "怎么调": "改完重跑引擎即可；离线或有缓存时自动降级，不影响主链路",
+      "看效果": "python3 tools/genshin_news.py --events -v"
+    },
+    "对话缓冲（防止长对话中途冒见闻）": {
+      "decision.conversation_buffer_minutes": "对话缓冲：双方任一方最近开口后 N 分钟内，任何主动发言一律压住（默认 20）。注意这条**不受 priority 影响**——高优先级同样压，否则见闻会冷不丁冒出来。话题续聊（follow_up_*）不受此限。调大=更安静，调小=更爱插话",
+      "decision.news_hold_minutes": "见闻静默：带 news 标签的时令事件额外压这么久（默认 60）。对话刚结束也不能立刻换个话题讲见闻",
+      "decision.suppress_after_user_minutes": "原有的「用户刚发消息 N 分钟内不插嘴」（默认 3，高优先级豁免）。已基本被上面的对话缓冲覆盖，保留作为缓冲关掉时的兜底"
+    },
+    "说话方式守卫（直聊复读）": {
+      "delivery.channels[0].config.style_guard": "总开关。发现她在复读时**压缩会话**，清掉被逐字记住的上下文（默认开）",
+      "….style_guard_threshold": "多相似算复读（默认 0.85）。最近 3 对里有 2 对超过它就触发",
+      "….style_guard_cooldown_minutes": "两次压缩之间的最小间隔（默认 60 分钟）",
+      "….style_guard_keep_lines": "压缩时保留最近多少行（默认 16）。**要小于复读那几段所占的行数**，否则压完那几段还在上下文里、等于没压。常规压缩的 compact_keep_lines 是 80",
+      "为什么是压会话而不是拦回复": "直聊的回复由 OpenClaw 直接生成发出，引擎完全绕过，拦不到。唯一能作用于那条链路的杠杆是上下文本身",
+      "归因说明": "复读**不是本地模型的问题**：按有真人对话的会话做公平对照，云端时期 24% 相邻回复高度相似、本地时期 15%，本地反而更低",
+      "style_guard": "**默认关闭**。曾经默认开：检出复读就压缩会话。实测两个问题：① 压缩只能砍更早的行，而复读的正是最近几条——压到 24 行、16 行后那几段原文仍在上下文里，判据照样命中，**没解决问题**；② 它会真的改写会话文件（OpenClaw 有自动备份可恢复，但这是破坏性操作）。收益未证明 + 代价是破坏性的 → 不该默认开。要用请显式设 true，并先确认 `.jsonl.bak.*` 备份存在"
+    },
+    "说话方式（直聊复读）": {
+      "delivery.channels[0].config.style_digest": "**默认关（实测无效）**。原意是把重复的起手式写进 MEMORY.md 让模型换一种，实测三版措辞都无效：括号开头占比 100% vs 基线 98%（n=8+8）。同样无效的还有采样参数（presence/frequency penalty）与「点名你在模仿自己」的强指令（n=12 仍 100%）。**唯一有效的干预是把她的回复从上下文里去掉（100%→50%，n=4）**",
+      "delivery.channels[0].config.style_guard": "**默认关**（破坏性，见原说明）。压缩会话来断复读，实测没解决问题",
+      "怎么起效": "需要 MEMORY.md 里已有 <!-- AUTO:STYLE BEGIN --> / END 标记块；没有就不动文件"
+    },
+    "说话方式改写（唯一有效的办法）": {
+      "delivery.channels[0].config.style_rewrite": "**默认开（仅生产配置）**。周期性去掉她**历史回复开头**的括号动作，断开她模仿自己的循环。实测 100%→25%",
+      "….style_rewrite_cooldown_minutes": "两次改写的最小间隔（默认 30 分钟）",
+      "改的是什么": "OpenClaw 的会话转录（给模型看的上下文）；**微信里她发的历史消息不变**",
+      "怎么回滚": "python3 tools/style_rewrite.py --restore  会列出备份让选",
+      "安全性": "工具自带时间戳备份、原子写、写完逐行校验；备份只留最近 3 个"
+    }
+  },
+  "news": {
+    "enabled": true,
+    "cache_hours": 6,
+    "timeout": 20
+  }
+}

@@ -1,0 +1,79 @@
+{
+  "scene": {
+    "tick_minutes": 30,
+    "tick_interval_seconds": 30,
+    "start": {
+      "day": 1,
+      "hour": 20.0,
+      "weather": "cloudy",
+      "location": "yard",
+      "character_state": "idle",
+      "affinity": 40.0
+    },
+    "events_file": "events.json",
+    "state_file": "state.json",
+    "anti_silence_minutes": 60,
+    "follow_up_minutes": 90,
+    "sync_to_utc8": true,
+    "event_rate_multiplier": 0.45
+  },
+  "persona": {
+    "name": "胡桃",
+    "tags": [
+      "weather",
+      "nature",
+      "stargazing",
+      "festival",
+      "ghost_story",
+      "business",
+      "missing_you",
+      "greeting",
+      "drama",
+      "food",
+      "music",
+      "opera"
+    ]
+  },
+  "decision": {
+    "proactiveness": "lively",
+    "dnd_hours": [
+      0,
+      7
+    ],
+    "suppress_after_user_minutes": 3.0,
+    "min_interval_minutes": 20,
+    "max_interval_minutes": 90
+  },
+  "cast_file": "cast.json",
+  "receipts": {
+    "enabled": true,
+    "pending_file": "~/.openclaw/workspace/memory/events/pending.json",
+    "replies_file": "~/.openclaw/workspace/memory/events/replies.jsonl"
+  },
+  "delivery": {
+    "channels": [
+      {
+        "name": "openclaw_pending",
+        "config": {
+          "path": "~/.openclaw/workspace/memory/events/pending.json",
+          "max_pending": 6,
+          "stale_minutes": 20
+        }
+      },
+      {
+        "name": "json_file",
+        "config": {
+          "path": "outbox/openclaw_inbox.jsonl"
+        }
+      },
+      {
+        "name": "console"
+      }
+    ]
+  },
+  "security": {
+    "weixin_owner_ids": [
+      "YOUR_WECHAT_OPENID@im.wechat"
+    ]
+  }
+}

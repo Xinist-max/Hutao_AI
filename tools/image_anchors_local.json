@@ -1,0 +1,173 @@
+{
+  "_comment": "本地生图的标签词典。和 image_anchors.json 的区别：那个给阿里万相用（吃中文自然语言描述），这个给本地 SDXL/animagine 用（吃 danbooru 英文标签）。本地模型基本不认识中文，写中文只会得到随机图。",
+  "_usage": "tools/gen_image_local.py 命中 aliases 后把 tags 追加到提示词末尾；--raw 可关闭。",
+  "quality_prefix": "masterpiece, best quality, very aesthetic, absurdres",
+  "characters": {
+    "胡桃": {
+      "aliases": [
+        "胡桃",
+        "堂主",
+        "胡堂主",
+        "本堂主",
+        "往生堂堂主"
+      ],
+      "tags": "hu tao (genshin impact), 1girl, solo, brown hair, long hair, twin tails, red eyes, flower-shaped pupils, black hat, tassel, chinese clothes, long sleeves, red ribbon, smile"
+    },
+    "钟离": {
+      "aliases": [
+        "钟离",
+        "客卿"
+      ],
+      "tags": "zhongli (genshin impact), 1boy, solo, long hair, brown hair, amber eyes, black coat, white shirt, mature male"
+    },
+    "魈": {
+      "aliases": [
+        "魈",
+        "降魔大圣"
+      ],
+      "tags": "xiao (genshin impact), 1boy, solo, short hair, dark green hair, teal eyes, white jacket, tribal tattoo"
+    },
+    "温迪": {
+      "aliases": [
+        "温迪",
+        "吟游诗人"
+      ],
+      "tags": "venti (genshin impact), 1boy, solo, short hair, black hair, green eyes, beret, feather, green cape"
+    },
+    "甘雨": {
+      "aliases": [
+        "甘雨"
+      ],
+      "tags": "ganyu (genshin impact), 1girl, solo, long hair, blue hair, horned, purple eyes, chinese clothes"
+    },
+    "刻晴": {
+      "aliases": [
+        "刻晴"
+      ],
+      "tags": "keqing (genshin impact), 1girl, solo, long hair, purple hair, twin tails, purple eyes, thighhighs"
+    },
+    "香菱": {
+      "aliases": [
+        "香菱"
+      ],
+      "tags": "xiangling (genshin impact), 1girl, solo, brown hair, double bun, orange eyes, apron"
+    },
+    "凝光": {
+      "aliases": [
+        "凝光"
+      ],
+      "tags": "ningguang (genshin impact), 1girl, solo, long hair, white hair, red eyes, chinese clothes, hair ornament"
+    },
+    "北斗": {
+      "aliases": [
+        "北斗"
+      ],
+      "tags": "beidou (genshin impact), 1girl, solo, long hair, dark purple hair, red eyes, eyepatch, pirate"
+    },
+    "申鹤": {
+      "aliases": [
+        "申鹤"
+      ],
+      "tags": "shenhe (genshin impact), 1girl, solo, very long hair, white hair, blue eyes, chinese clothes"
+    },
+    "夜兰": {
+      "aliases": [
+        "夜兰"
+      ],
+      "tags": "yelan (genshin impact), 1girl, solo, short hair, dark cyan hair, green eyes, bodysuit"
+    },
+    "云堇": {
+      "aliases": [
+        "云堇"
+      ],
+      "tags": "yun jin (genshin impact), 1girl, solo, long hair, purple hair, opera makeup, chinese opera costume"
+    },
+    "瑶瑶": {
+      "aliases": [
+        "瑶瑶"
+      ],
+      "tags": "yaoyao (genshin impact), 1girl, solo, child, brown hair, double bun, green eyes, basket"
+    },
+    "行秋": {
+      "aliases": [
+        "行秋"
+      ],
+      "tags": "xingqiu (genshin impact), 1boy, solo, short hair, blue hair, yellow eyes, chinese clothes"
+    },
+    "重云": {
+      "aliases": [
+        "重云"
+      ],
+      "tags": "chongyun (genshin impact), 1boy, solo, short hair, light blue hair, blue eyes, chinese clothes"
+    },
+    "辛焱": {
+      "aliases": [
+        "辛焱"
+      ],
+      "tags": "xinyan (genshin impact), 1girl, solo, black hair, curly hair, red eyes, guitar, rock music"
+    },
+    "白术": {
+      "aliases": [
+        "白术"
+      ],
+      "tags": "baizhu (genshin impact), 1boy, solo, long hair, green hair, glasses, white coat, snake"
+    },
+    "嘉明": {
+      "aliases": [
+        "嘉明"
+      ],
+      "tags": "gaming (genshin impact), 1boy, solo, short hair, brown hair, red eyes, lion dance"
+    },
+    "闲云": {
+      "aliases": [
+        "闲云",
+        "留云借风真君"
+      ],
+      "tags": "xianyun (genshin impact), 1girl, solo, long hair, black hair, glasses, feather ornament"
+    }
+  },
+  "locations": {
+    "璃月港": {
+      "aliases": [
+        "璃月港",
+        "璃月",
+        "码头",
+        "港口",
+        "往生堂"
+      ],
+      "tags": "liyue harbor (genshin impact), chinese architecture, lantern, night, harbor, boat, scenery"
+    },
+    "绝云间": {
+      "aliases": [
+        "绝云间"
+      ],
+      "tags": "jueyun karst (genshin impact), mountain, cloud, scenery, floating island"
+    },
+    "荻花洲": {
+      "aliases": [
+        "荻花洲"
+      ],
+      "tags": "dihua marsh (genshin impact), reeds, water, marsh, scenery"
+    }
+  },
+  "elements": {
+    "霄灯": {
+      "aliases": [
+        "霄灯",
+        "海灯",
+        "孔明灯"
+      ],
+      "tags": "sky lantern, floating lantern, night sky, festival"
+    },
+    "雪": {
+      "aliases": [
+        "雪",
+        "下雪"
+      ],
+      "tags": "snow, snowfall, winter, snowing"
+    }
+  },
+  "default_lora": "hutao",
+  "default_lora_strength": 0.8,
+  "_lora_comment": "default_lora 会被 gen_image_local.py 模糊匹配（现有 hutao_sdxl.safetensors / genshin_full.safetensors）。--no-lora 可单次关闭。"
+}

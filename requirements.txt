@@ -1,0 +1,4 @@
+# 核心功能零第三方依赖（纯 Python 标准库即可运行）。
+# 以下为可选依赖：
+#   PyYAML —— 事件模板支持 YAML 格式（events.yaml / events.yml）时使用，JSON 场景无需安装。
+PyYAML>=6.0

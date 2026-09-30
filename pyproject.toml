@@ -1,0 +1,26 @@
+[project]
+name = "hutao-ai-companion"
+version = "1.1.1"
+description = "胡桃 AI 虚拟角色系统：事件驱动的主动发言、多模态输出、Live2D、本地模型与纯逻辑数字化场景（需求⑥）"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+keywords = ["ai", "virtual-character", "companion", "openclaw", "live2d", "scene-simulation", "genshin"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Topic :: Games/Entertainment",
+]
+
+[project.optional-dependencies]
+# 事件模板除 JSON 外也支持 YAML 格式（可选依赖）
+yaml = ["PyYAML>=6.0"]
+# Live2D 桥接（驱动 VTube Studio）
+live2d = ["websockets>=12"]
+
+[tool.setuptools]
+packages = ["scene"]
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"

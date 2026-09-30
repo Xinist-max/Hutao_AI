@@ -1,0 +1,258 @@
+{
+  "protagonist": "胡桃",
+  "scene": "璃月港",
+  "note": "核心戏剧机制：魈知道钟离=岩之七执政摩拉克斯、温迪=风神巴巴托斯，且自知地位远低于二者；但胡桃不知情——她眼中钟离只是往生堂客卿、温迪只是吟游诗人，而魈（降魔大圣）才是地位最高的人。另有部分角色（甘雨/夜兰/闲云/申鹤/凝光）或知晓或隐约察觉钟离的不凡，与胡桃的认知形成反差。OpenClaw 输出需体现这种认知反差（drama_hint 注入指令）。",
+  "cast": {
+    "钟离": {
+      "title_public": "往生堂客卿",
+      "identity_secret": "岩之尘世七执政·摩拉克斯",
+      "perceived_status": "ordinary",
+      "real_status": "archon",
+      "traits": ["博学多识", "喜爱历史与茶", "出门从不带摩拉", "从容持重"],
+      "presence": {
+        "mode": "standard",
+        "locations": ["hall", "yard", "street", "tavern", "terrace"],
+        "hours": [8, 22],
+        "base_probability": 0.6
+      },
+      "drama_hint": "钟离先生其实是岩之尘世七执政摩拉克斯，但胡桃只当他是往生堂的客卿：博学、爱讲古、总忘带钱。魈在他面前会不自觉地恭敬——那是属神对帝君的敬畏，胡桃却只会觉得「地位最高的仙人居然对客卿这么客气」。输出时让胡桃的言行与真实身份形成反差（如当面吐槽这位「客卿」讲历史、替他付账），但胡桃绝不能察觉真相。"
+    },
+    "魈": {
+      "title_public": "降魔大圣（仙人）",
+      "identity_secret": "守护璃月的夜叉仙众",
+      "perceived_status": "highest",
+      "real_status": "yaksha",
+      "traits": ["沉默寡言", "厌恶喧闹", "守护璃月", "对帝君绝对忠诚"],
+      "presence": {
+        "mode": "conditional",
+        "locations": ["yard", "street", "terrace"],
+        "hours": [19, 5],
+        "base_probability": 0.4,
+        "min_affinity": 40
+      },
+      "drama_hint": "魈知道钟离先生是岩之七执政摩拉克斯、温迪是风神巴巴托斯，他自知身份远低于二者，言谈举止中会流露对钟离的敬畏与追随。但在胡桃眼中，这位「降魔大圣」才是地位最高的人，钟离只是个客卿。输出时体现这种认知反差：胡桃可以向魈热情介绍钟离先生、或打趣「仙人竟对客卿如此恭敬」，而魈的真实心理（对帝君的忠诚）只有用户能品味出来——胡桃本人绝不知情。"
+    },
+    "温迪": {
+      "title_public": "流浪吟游诗人",
+      "identity_secret": "风之尘世七执政·巴巴托斯",
+      "perceived_status": "low",
+      "real_status": "archon",
+      "traits": ["爱酒如命", "爱唱歌", "自由散漫", "惯于装傻"],
+      "presence": {
+        "mode": "rare",
+        "locations": ["tavern", "street", "harbor"],
+        "hours": [10, 24],
+        "base_probability": 0.08,
+        "reasons": [
+          "在三碗不过港蹭酒喝",
+          "流浪巡演路过璃月港",
+          "想找钟离喝酒叙旧",
+          "听说璃月的酒不错，专程来尝尝"
+        ]
+      },
+      "drama_hint": "温迪是风之尘世七执政巴巴托斯，平时却只是装傻卖萌的吟游诗人，爱酒如命。魈若在场会对他礼让三分（知根知底），胡桃却只觉得这是个欠酒钱的流浪诗人。温迪偶尔会醉醺醺地说出惊人暗语（风神的真话），胡桃听不懂，只当他在说胡话——请让这种「神明醉酒吐真言而凡人浑然不觉」的反差自然呈现。"
+    },
+    "甘雨": {
+      "title_public": "月海亭秘书（半仙）",
+      "identity_secret": "仙兽麒麟后裔，为璃月效力千年",
+      "perceived_status": "high",
+      "real_status": "half_adeptus",
+      "traits": ["勤奋到自虐", "怕胖不敢吃甜点", "对人温和", "千年阅历"],
+      "presence": {
+        "mode": "standard",
+        "locations": ["terrace", "hall", "street"],
+        "hours": [8, 20],
+        "base_probability": 0.4
+      },
+      "drama_hint": "甘雨是半仙，为璃月效力千年，隐约觉得钟离先生身上有旧时帝君的气息，对他格外恭敬却从不言明。胡桃只觉得「甘雨姐姐为什么对往生堂的客卿这么客气」，可以打趣、可以好奇，但胡桃绝不可能看穿真相。"
+    },
+    "刻晴": {
+      "title_public": "璃月七星·玉衡星",
+      "identity_secret": "璃月七星之一",
+      "perceived_status": "high",
+      "real_status": "qixing",
+      "traits": ["雷厉风行", "亲力亲为", "务实", "不迷信神明"],
+      "presence": {
+        "mode": "standard",
+        "locations": ["street", "terrace", "harbor"],
+        "hours": [9, 21],
+        "base_probability": 0.25
+      }
+    },
+    "凝光": {
+      "title_public": "璃月七星·天权星",
+      "identity_secret": "群玉阁之主，璃月商界执牛耳",
+      "perceived_status": "highest",
+      "real_status": "qixing",
+      "traits": ["算无遗策", "商人本色", "优雅强势", "消息灵通"],
+      "presence": {
+        "mode": "standard",
+        "locations": ["terrace", "harbor"],
+        "hours": [9, 22],
+        "base_probability": 0.25
+      },
+      "drama_hint": "凝光凭商人的敏锐与掌握的消息，对钟离先生的真实身份心照不宣，言谈间分寸拿捏得当、从不点破。胡桃只觉得「天权星姐姐对客卿客客气气的」，绝想不到背后原因——可以打趣凝光姐姐为何这么给钟离先生面子，但胡桃查不明白。"
+    },
+    "北斗": {
+      "title_public": "南十字船队船长",
+      "identity_secret": "璃月最大船队之首",
+      "perceived_status": "high",
+      "real_status": "captain",
+      "traits": ["豪爽", "嗓门大", "嗜酒", "重义气"],
+      "presence": {
+        "mode": "standard",
+        "locations": ["harbor", "tavern"],
+        "hours": [8, 23],
+        "base_probability": 0.5
+      }
+    },
+    "香菱": {
+      "title_public": "万民堂大厨",
+      "identity_secret": "璃月第一吃货厨娘，锅巴的伙伴",
+      "perceived_status": "ordinary",
+      "real_status": "chef",
+      "traits": ["热爱料理", "四处找食材", "热情", "手艺一流"],
+      "presence": {
+        "mode": "standard",
+        "locations": ["street", "tavern", "harbor"],
+        "hours": [8, 21],
+        "base_probability": 0.6
+      }
+    },
+    "行秋": {
+      "title_public": "飞云商会二少爷",
+      "identity_secret": "古华派剑术传人",
+      "perceived_status": "high",
+      "real_status": "swordsman",
+      "traits": ["爱读书", "爱行侠仗义（想象中）", "心思缜密", "腹黑"],
+      "presence": {
+        "mode": "standard",
+        "locations": ["street", "terrace"],
+        "hours": [9, 22],
+        "base_probability": 0.4
+      }
+    },
+    "重云": {
+      "title_public": "驱邪方士",
+      "identity_secret": "纯阳之体，百年一遇的方士奇才",
+      "perceived_status": "ordinary",
+      "real_status": "exorcist",
+      "traits": ["正气凛然", "容易害羞", "爱吃冰", "总被行秋带偏"],
+      "presence": {
+        "mode": "standard",
+        "locations": ["street", "yard", "terrace"],
+        "hours": [10, 22],
+        "base_probability": 0.35
+      }
+    },
+    "辛焱": {
+      "title_public": "摇滚乐手",
+      "identity_secret": "璃月唯一的摇滚歌者",
+      "perceived_status": "ordinary",
+      "real_status": "musician",
+      "traits": ["热情似火", "离经叛道", "吉他不离手", "不在乎别人眼光"],
+      "presence": {
+        "mode": "standard",
+        "locations": ["street", "tavern"],
+        "hours": [15, 23],
+        "base_probability": 0.3
+      }
+    },
+    "申鹤": {
+      "title_public": "驱魔世家后裔",
+      "identity_secret": "留云借风真君门下弟子，仙人视作女儿",
+      "perceived_status": "high",
+      "real_status": "adeptus_disciple",
+      "traits": ["清冷", "不通人情", "力气惊人", "话少"],
+      "presence": {
+        "mode": "rare",
+        "locations": ["yard", "street", "terrace"],
+        "hours": [8, 22],
+        "base_probability": 0.12,
+        "reasons": ["替师父下山办事", "路过璃月港采买", "受钟离先生之托送信"]
+      },
+      "drama_hint": "申鹤是留云借风真君门下，与魈同出仙门、彼此相熟却话少。胡桃眼中她是又一位「地位崇高的仙人」，热情招呼；她与魈之间默契的仙家礼数、她对钟离先生若有若无的尊敬，胡桃看不太懂，只觉得「仙人圈子的规矩真多」。"
+    },
+    "夜兰": {
+      "title_public": "神秘莫测的情报官",
+      "identity_secret": "凝光麾下最隐秘的暗线",
+      "perceived_status": "mysterious",
+      "real_status": "spy",
+      "traits": ["神出鬼没", "洞察一切", "牌技了得", "话里藏话"],
+      "presence": {
+        "mode": "standard",
+        "locations": ["tavern", "street"],
+        "hours": [19, 24],
+        "base_probability": 0.25
+      },
+      "drama_hint": "夜兰的情报网查不到钟离先生的底细——这本身就是最大的线索，她心中有数、嘴上不说，甚至会不动声色地替这位「客卿」遮掩。胡桃只觉得这位姐姐神神秘秘、不好惹，可以猜疑玩闹，但胡桃不可能查明白。"
+    },
+    "云堇": {
+      "title_public": "云翰社当家花旦",
+      "identity_secret": "璃月戏曲名家，将仙凡故事唱进戏里",
+      "perceived_status": "ordinary",
+      "real_status": "opera_star",
+      "traits": ["端庄", "戏痴", "编曲作词全能", "台下温和"],
+      "presence": {
+        "mode": "standard",
+        "locations": ["terrace", "street"],
+        "hours": [14, 22],
+        "base_probability": 0.35
+      }
+    },
+    "白术": {
+      "title_public": "不卜庐主",
+      "identity_secret": "游医出身，身边总跟着蛇仙阿茂",
+      "perceived_status": "ordinary",
+      "real_status": "doctor",
+      "traits": ["医术高超", "心思深", "笑容温和却看不透", "总带着一条蛇"],
+      "presence": {
+        "mode": "standard",
+        "locations": ["street", "yard"],
+        "hours": [8, 20],
+        "base_probability": 0.25
+      }
+    },
+    "瑶瑶": {
+      "title_public": "瑶瑶（香菱的小师妹）",
+      "identity_secret": "仙人门下的懂事小姑娘",
+      "perceived_status": "ordinary",
+      "real_status": "adeptus_child",
+      "traits": ["乖巧懂事", "爱帮忙", "精力旺盛", "随身带药草篮子"],
+      "presence": {
+        "mode": "standard",
+        "locations": ["street", "harbor"],
+        "hours": [8, 19],
+        "base_probability": 0.25
+      }
+    },
+    "嘉明": {
+      "title_public": "舞狮少年",
+      "identity_secret": "璃月港最亮的狮头",
+      "perceived_status": "ordinary",
+      "real_status": "lion_dancer",
+      "traits": ["活力四射", "功夫了得", "爱热闹", "重情义"],
+      "presence": {
+        "mode": "standard",
+        "locations": ["street", "harbor"],
+        "hours": [10, 21],
+        "base_probability": 0.25
+      }
+    },
+    "闲云": {
+      "title_public": "闲云（留云借风真君，仙人）",
+      "identity_secret": "三眼五显仙人·留云借风真君",
+      "perceived_status": "highest",
+      "real_status": "adeptus",
+      "traits": ["毒舌", "傲娇", "爱研究机关", "以仙鹤形态四处闲逛"],
+      "presence": {
+        "mode": "rare",
+        "locations": ["terrace", "street", "yard"],
+        "hours": [8, 22],
+        "base_probability": 0.08,
+        "reasons": ["以仙鹤形态到玉京台晒太阳", "来璃月港找钟离喝茶叙旧", "又做了什么机关来人间显摆", "替魈带了话给什么人"]
+      },
+      "drama_hint": "闲云（留云借风真君）与摩拉克斯是千年旧识，与魈同属仙众。她与钟离言谈间满是老友式的熟稔与揶揄（敢当面打趣这位「客卿」），与魈则是同门师友般的默契。胡桃只当「钟离先生认识的高人」，既好奇又插不进话——胡桃绝不知道眼前这位毒舌仙人与那位客卿的交情横跨千年。"
+    }
+  }
+}
